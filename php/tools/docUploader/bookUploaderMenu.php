@@ -102,6 +102,7 @@ function saveFileEntry() {
     $file = fopen($database_path, 'w');
     fwrite($file, json_encode($database));
     fclose($file);
+    return true;
 }
 
 function main(){
