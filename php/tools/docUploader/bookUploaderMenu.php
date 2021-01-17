@@ -18,31 +18,30 @@ $target_file    = "";
 $error          = "";
 
 function checkErrors() {
+    global $error;
     if (empty($_POST["book_name"])) {
         $error = "Book Name is required ";
-        return false;
     }
     if (empty($_POST["author_name"])) {
         $error = $error."Author name is required ";
-        return false;
     }
     if (empty($_POST["details"])) {
         $error = $error."Info is required ";
-        return false;
     }
     if (empty($_POST["branch"])) {
         $error = $error."Branch is required ";
-        return false;
     }
     if (empty($_FILES["file"]["name"])){
         $error = $error."file not uploaded ";
+    }
+    if($error != "") {
         return false;
     }
     return true;
 }
 
 function saveFile() {
-    global $base_dir, $logger, $target_file;
+    global $error, $base_dir, $logger, $target_file;
     $sem = $_POST['sem'];
     $branch = $_POST['branch'];
     $folder_path = "$base_dir/Data/files/s$sem".$branch."/";

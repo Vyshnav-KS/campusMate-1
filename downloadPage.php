@@ -132,12 +132,12 @@ last_line:
 <section>
 <div id="ABOUT" class="contentBoxOne">
 <p class="contentOne">
-Currently no data available. You can upload files below here and will be published after checking. 
+ You can upload files below here and will be published after checking. 
 </p>
 </div>
 
 <div class="uploadBook">
-<a href="php/tools/docUploader/uploaderMenu.php">
+<a href="php/tools/docUploader/uploaderMenu.html">
 <button class="uploadButton"> Upload Here</button></a>
 </div>
 </section>
