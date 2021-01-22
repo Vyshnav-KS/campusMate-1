@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.uploader{
+    text-align: center;
+    justify-content: center;
+    border: 1px solid red;
+    margin: 4rem 8rem;
+}
+
+.uploader_title{
+    text-transform: uppercase;
+    text-align: center;
+}
+.uploader_form{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 3rem;
+    width: auto;
+    border: 1px solid blue;
+    text-align: center;
+    justify-content: center;
+}
+
+.uploader_info input{
+    text-align: center; 
+    height: 2.5rem;  
+    width: 20rem;
+    border-radius: 0rem; 
+    
+}
+
+.uploader_info textarea{
+    width: 20rem;
+    border-radius: 0rem;
+}
+.branch span{
+    text-transform: uppercase;
+    line-height: 3rem;
+}
+.uploader_branch {
+    line-height: 2rem;
+    text-transform: uppercase;
+}
+
+.uploader_semester select{
+    height: 2.5rem;
+    width: 7.3rem;
+    border-radius: 0rem;
+}
+.uploader_file{
+    text-transform: uppercase;
+}
+
+.uploader_file input{
+    text-decoration: none;
+    width: 7.3rem;
+    height: 2.5rem;
+    overflow: hidden;
+}
+
+.uploader_button{
+    height: 2.5rem;
+    width: 7.3rem;
+    color: black;
+    background-color: rgb(46, 126, 192);
+    border-radius: 0rem;
+    margin: 2rem;
+}

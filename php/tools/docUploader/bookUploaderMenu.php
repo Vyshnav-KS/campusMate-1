@@ -2,6 +2,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
+    <link rel="stylesheet" href="uploader.css">
 <style>
 .error {color: #FF0000;}
 </style>
@@ -120,47 +121,60 @@ main();
 ?>
 
 
-<h1>Book Upload Menu</h1>
-<form name = "myform" method="post" enctype="multipart/form-data">
+<div class="uploader">
+<h1 class="uploader_title">Upload your e-book here.</h1>
+<div class="uploader_form">
+<form name = "myform" class="uploader_form-page" method="post" enctype="multipart/form-data">
 <span class="error"><?php echo $error;?></span>
 <br><br>
-Book name:&ensp; <input type="text" name="book_name" value="">
+<div class="uploader_info">
+&ensp; <input type="text" name="book_name" value="Book name">
 <br><br>
-Author name:&ensp; <input type="text" name="author_name" value="">
+&ensp; <input type="text" name="author_name" value="Author name:">
 <br><br>
-Info:&ensp; <textarea name="details" rows="5" cols="40"></textarea>
+Info: <br>
+&ensp; <textarea name="details" rows="5" cols="40"></textarea>
 <br><br>
-Branch :&ensp;
+</div>
+<div class="uploader_branch">
+<span class="branch">Branch</span><br>&ensp;
 <input type="radio" name="branch" value="cse">CSE
 <input type="radio" name="branch" value="it">IT
 <input type="radio" name="branch" value="me">Mech
 <input type="radio" name="branch" value="civil">CIVIL
 <input type="radio" name="branch" value="ece">ECE
 <input type="radio" name="branch" value="eee">EEE
+</div>
 <br><br>
 
-Semester :
+<div class="uploader_semester">
+
 <select name = "sem">
 <?php
 for ($i = 1; $i <= 8; $i += 1)
 {
-    echo "<option value = \"$i\"> Sem $i</option>";
+    echo "<option value = \"$i\"> SEMESTER $i</option>";
 }
 ?>
 </select>
+</div>
 
-<br><br><br><br>
-Upload Document :
+<br><br>
+<div class="uploader_file">
+Select Document <br>
 <input type="file" name="file" id="file" onchange="fileSelected();"/>
 <br><br>
 <div id="fileName"></div>
 <div id="fileSize"></div>
 <div id="fileType"></div>
-<div class="row">
-<input type="button" onclick="uploadFile()" value="Upload" />
+</div>
+<div class="row uploader_btn">
+<input type="button" class="uploader_button" onclick="uploadFile()" value="Upload" />
 </div>
 <div id="progressNumber"></div>
 </form>
+</div>
+</div>
 
 <script type="text/javascript">
 function fileSelected() {
