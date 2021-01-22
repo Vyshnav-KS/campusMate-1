@@ -15,11 +15,6 @@ $function_map = array(
         "arg_c"         => "2",
         "args_types"    => array("str", "str")
         ),
-
-    "fun_test" => array(
-        "name"          => "api_Test",
-        "arg_c"         => "0"
-        ),
     );
 
 # Main -------------------------------------------------------------------
@@ -38,37 +33,42 @@ function api_Register($args) {
 
 function api_Login($args) {
     $return_val = array(
-	    'result' => true,
-	    'err'    => "",
-	    );
+        'result' => true,
+        'err'    => "",
+    );
 
     $logger = new Logger();
+
+    if (empty($_POST["name"]) || empty($_POST["pass"]) ) {
+        $return_val['result'] = false;
+        $return_val['err'] = "*Please fill data";
+        echo json_encode($return_val);
+    } 
 
     $name = $args["p0"];
     $pass = $args["p1"];
     $hash = password_hash($name.$pass, PASSWORD_DEFAULT);
-    $base_dir =  $_SERVER['DOCUMENT_ROOT'];
 
-    // Chk existance
-    if (!file_exists("$base_dir/Data/users/".$name."/userInfo.dat"))
-    {
-	$return_val['result'] = false;
-	$return_val['err'] = "Wrong username or password";
-	echo json_encode($return_val);
-        return;
+    $conn = connectToDB();
+    if(!$conn) {
+        $return_val['result'] = false;
+        $return_val['err'] = "*Connection to database failed.";
+        echo json_encode($return_val);
     }
 
-    $data = file_get_contents("$base_dir/Data/users/".$name."/userInfo.dat");
-    $data = json_decode($data, true);
-
-    if (!password_verify($name.$pass, $data['hash'])) 
-    {
-	$return_val['result'] = false;
-	$return_val['err'] = "Wrong username or password";
-	echo json_encode($return_val);
-        return;
+    // SQL DB
+    $sql = "SELECT name, pass_hash FROM Users WHERE name='$name'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            if(password_verify($name.$pass, $row["pass_hash"])) {
+                $logger->addLog("Login success : User $name logged in.");
+                echo json_encode($return_val);
+            }
+        }
     }
 
-    $logger->addLog("Login success : User $name logged in.");
+    $return_val['result'] = false;
+    $return_val['err'] = "*Wrong username or password";
     echo json_encode($return_val);
 }

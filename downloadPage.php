@@ -63,50 +63,50 @@ foreach ($data as $key => $value)
 {
     if ($type == "books")
     {
-	$book_name	= $value['book_name'];
-	$subject_name	= $value['subject_name'];
-	$author_name	= $value['author_name'];
-	$details    	= $value['details'];
-	$file 		= $value['file'];
+        $book_name	= $value['book_name'];
+        $subject_name	= $value['subject_name'];
+        $author_name	= $value['author_name'];
+        $details    	= $value['details'];
+        $file 		= $value['file'];
 
-	$out_data = "<div class=\"Bookshelf-Container\"><ul class=\"Bookshelf\">";
-	$out_data = $out_data."<li><a class=\"subjectName\" >$subject_name</a></li>";
-	$out_data = $out_data."<li><a class=\"BookName\">$book_name</a></li>";
-	$out_data = $out_data."<li><a class=\"AuthorName\">by $author_name</a></li>";
-	$out_data = $out_data."<li ><a class=\"BookDetails\">Details : $details</a></li>"."";
-	$out_data = $out_data."<li class = \"AfterButton\"><button class=\"downloadButton\" onclick=\"document.location='php/downloader.php?file=$file'\">Download</button></li></ul></div><br>";
+        $out_data = "<div class=\"Bookshelf-Container\"><ul class=\"Bookshelf\">";
+        $out_data = $out_data."<li><a class=\"subjectName\" >$subject_name</a></li>";
+        $out_data = $out_data."<li><a class=\"BookName\">$book_name</a></li>";
+        $out_data = $out_data."<li><a class=\"AuthorName\">by $author_name</a></li>";
+        $out_data = $out_data."<li ><a class=\"BookDetails\">Details : $details</a></li>"."";
+        $out_data = $out_data."<li class = \"AfterButton\"><button class=\"downloadButton\" onclick=\"document.location='php/downloader.php?file=$file'\">Download</button></li></ul></div><br>";
 
-	echo $out_data;
+        echo $out_data;
     }
     else if ($type == "notes") 
     {
-	$note_name 	= $value['note_name'];
-	$subject 	= $value['subject'];
-	$details	= $value['details'];
-	$file		= $value['file'];
+        $note_name 	= $value['note_name'];
+        $subject 	= $value['subject'];
+        $details	= $value['details'];
+        $file		= $value['file'];
 
-	$out_data = "<div class=\"Bookshelf-Container\"><ul class=\"Bookshelf\">";
-	$out_data = $out_data."<li><a class=\"subjectName\" >$subject</a></li>";
-	$out_data = $out_data."<li><a class=\"BookName\">$note_name</a></li>";
-	$out_data = $out_data."<li ><a class=\"BookDetails\">Details : $details</a></li>"."";
-	$out_data = $out_data."<li class = \"AfterButton\"><button class=\"downloadButton\" onclick=\"document.location='php/downloader.php?file=$file'\">Download</button></li></ul></div><br>";
+        $out_data = "<div class=\"Bookshelf-Container\"><ul class=\"Bookshelf\">";
+        $out_data = $out_data."<li><a class=\"subjectName\" >$subject</a></li>";
+        $out_data = $out_data."<li><a class=\"BookName\">$note_name</a></li>";
+        $out_data = $out_data."<li ><a class=\"BookDetails\">Details : $details</a></li>"."";
+        $out_data = $out_data."<li class = \"AfterButton\"><button class=\"downloadButton\" onclick=\"document.location='php/downloader.php?file=$file'\">Download</button></li></ul></div><br>";
 
-	echo $out_data;
+        echo $out_data;
     }
     else if ($type == "papers") 
     {
-	$paper_name 	= $value['paper_name'];
-	$subject 	= $value['subject'];
-	$details	= $value['details'];
-	$file		= $value['file'];
+        $paper_name 	= $value['paper_name'];
+        $subject 	= $value['subject'];
+        $details	= $value['details'];
+        $file		= $value['file'];
 
-	$out_data = "<div class=\"Bookshelf-Container\"><ul class=\"Bookshelf\">";
-	$out_data = $out_data."<li><a class=\"subjectName\" >$subject</a></li>";
-	$out_data = $out_data."<li><a class=\"BookName\">$paper_name</a></li>";
-	$out_data = $out_data."<li ><a class=\"BookDetails\">Details : $details</a></li>"."";
-	$out_data = $out_data."<li class = \"AfterButton\"><button class=\"downloadButton\" onclick=\"document.location='php/downloader.php?file=$file'\">Download</button></li></ul></div><br>";
+        $out_data = "<div class=\"Bookshelf-Container\"><ul class=\"Bookshelf\">";
+        $out_data = $out_data."<li><a class=\"subjectName\" >$subject</a></li>";
+        $out_data = $out_data."<li><a class=\"BookName\">$paper_name</a></li>";
+        $out_data = $out_data."<li ><a class=\"BookDetails\">Details : $details</a></li>"."";
+        $out_data = $out_data."<li class = \"AfterButton\"><button class=\"downloadButton\" onclick=\"document.location='php/downloader.php?file=$file'\">Download</button></li></ul></div><br>";
 
-	echo $out_data;
+        echo $out_data;
     }
 }
 
@@ -132,7 +132,7 @@ last_line:
 <section>
 <div id="ABOUT" class="contentBoxOne">
 <p class="contentOne">
- You can upload files below here and will be published after checking. 
+You can upload files below here and will be published after checking. 
 </p>
 </div>
 
