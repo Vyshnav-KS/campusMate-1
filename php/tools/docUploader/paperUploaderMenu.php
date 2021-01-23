@@ -2,6 +2,7 @@
 <!DOCTYPE HTML>  
 <html>
 <head>
+<link rel="stylesheet" href="uploader.css">
 <style>
 .error {color: #FF0000;}
 </style>
@@ -130,47 +131,79 @@ main();
 ?>
 
 
-<h1>Question Paper Upload Menu</h1>
-<form name = "myform" method="post" enctype="multipart/form-data">
-<span class="error"><?php echo $error;?></span>
-<br><br>
-Paper name:&ensp; <input type="text" name="paper_name" value="">
-<br><br>
-Subject name:&ensp; <input type="text" name="subject" value="">
-<br><br>
-Info:&ensp; <textarea name="details" rows="5" cols="40"></textarea>
-<br><br>
-Branch :&ensp;
-<input type="radio" name="branch" value="cse">CSE
-<input type="radio" name="branch" value="it">IT
-<input type="radio" name="branch" value="me">Mech
-<input type="radio" name="branch" value="civil">CIVIL
-<input type="radio" name="branch" value="ece">ECE
-<input type="radio" name="branch" value="eee">EEE
-<br><br>
-
-Semester :
-<select name = "sem">
-<?php
-for ($i = 1; $i <= 8; $i += 1)
-{
-    echo "<option value = \"$i\"> Sem $i</option>";
-}
-?>
-</select>
-
-<br><br><br><br>
-Upload Document :
-<input type="file" name="file" id="file" onchange="fileSelected();"/>
-<br><br>
-<div id="fileName"></div>
-<div id="fileSize"></div>
-<div id="fileType"></div>
-<div class="row">
-<input type="button" onclick="uploadFile()" value="Upload" />
-</div>
-<div id="progressNumber"></div>
-</form>
+<form name = "myform" class="uploader_form-page" method="post" enctype="multipart/form-data">
+        <span class="error"><?php echo $error;?></span>
+        <div class="wrapper">
+        <div class="title">
+          UPLOAD YOUR QUESTION PAPER HERE
+        </div>
+        <div class="form">
+           <div class="inputfield">
+              <label>Paper Name</label>
+              <input type="text" name="book_name" class="input">
+           </div>  
+            <div class="inputfield">
+              <label>Subject Name</label>
+              <input type="text" name="author_name" class="input">
+           </div>  
+    
+           <div class="inputfield">
+            <label>Branch</label>
+            <div class="custom_select">
+              <select name="">
+                <option value="">Select</option>
+                <option value="civil">Civil Engineering</option>
+                <option value="cse">Computer Science Engineering</option>
+                <option value="eee">Electrial and Enlectronics Engineering</option>
+                <option value="ece">Electronics and Communication Engineering</option>
+                <option value="it">Information Technology</option>
+                <option value="me">Mechanical Engineering</option>
+              </select>
+            </div>
+         </div> 
+           
+            <div class="inputfield">
+              <label>Semester</label>
+              <div class="custom_select">
+                <select name="sem">
+                  <option value="">Select</option>
+                  <option value="S1">SEMESTER 1</option>
+                  <option value="S2">SEMESTER 2</option>
+                  <option value="S3">SEMESTER 3</option>
+                  <option value="S4">SEMESTER 4</option>
+                  <option value="S5">SEMESTER 5</option>
+                  <option value="S5">SEMESTER 5</option>
+                  <option value="S6">SEMESTER 6</option>
+                  <option value="S7">SEMESTER 7</option>
+                  <option value="S8">SEMESTER 8</option>
+                </select>
+              </div>
+           </div> 
+            <div class="inputfield">
+              <label>Email Address</label>
+              <input type="text" class="input">
+           </div> 
+          <div class="inputfield">
+              <label> Info</label>
+              <textarea class="textarea" name="details" ></textarea>
+           </div> 
+    
+           <div class="uploader_file inputfield">
+            <label for=""> Select Document</label>
+            <input type="file" class="btn" name="file" id="file" onchange="fileSelected();"/>
+            
+            <div id="fileName"></div>
+            <div id="fileSize"></div>
+            <div id="fileType"></div>
+            </div>
+           
+          <div class="inputfield">
+            <input type="button" value="Upload" class="btn" onclick="uploadFile()">
+          </div>
+          <div id="progressNumber"></div>
+        </div>
+    </div>
+</form>	
 
 <script type="text/javascript">
 function fileSelected() {
